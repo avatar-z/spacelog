@@ -15,10 +15,10 @@
       <td><a href="?do=statistic" target="_self">statistic</a></td>
     </tr>
     <tr>
-      <td>edit</td>
+      <td><a href="?do=edit" target="_self">edit</a></td>
     </tr>
     <tr>
-      <td>delete</td>
+      <td><a href="?do=delete" target="_self">delete</a></td>
     </tr>
   </tbody>
 </table>

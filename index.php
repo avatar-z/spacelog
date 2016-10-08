@@ -15,9 +15,8 @@ This is the Space Log of E
 <div style="width:100%; height:auto;">
 <div align="center">
 <table border="0">
-  <tbody>
+  <tbody align="center">
     <tr>
-      <th scope="row" style="width:100px;">&nbsp;</th>
       <td style="width:400px;">
       <?php 
 	  	if(isset($_GET['do'])){
@@ -36,8 +35,8 @@ This is the Space Log of E
 				case 'search':include("/Units/unit_search.php");break;
 				case 'review':include("/Units/unit_review.php");break;
 				case 'statistic':include("/Units/unit_statistic.php");break;
-				case 'delete':include("/Units/unit_edit.php");break;
-				case 'edit':include("/Units/unit_delete.php");break;
+				case 'delete':include("/Units/unit_delete.php");break;
+				case 'edit':include("/Units/unit_edit.php");break;
 			}
 		}
 		else{
@@ -48,7 +47,6 @@ This is the Space Log of E
       <td style="width:200px;"><?php include("/Units/unit_sidebar.php"); ?></td>
     </tr>
     <tr>
-      <th scope="row" style="width:100px;">&nbsp;</th>
       <td style="width:400px;">&nbsp;</td>
       <td style="width:200px;">&nbsp;</td>
     </tr>
