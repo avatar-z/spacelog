@@ -1,3 +1,4 @@
+<?php require_once("/webprofile.php"); ?>
 <!doctype php>
 <html>
 <head>
@@ -28,6 +29,13 @@ This is the Space Log of E
 				case 'statistic':include("/Units/unit_statistic.php");break;
 				case 'edit':include("/Units/unit_edit.php");break;
 				case 'delete':include("/Units/unit_delete.php");break;
+				case 'login':
+				{
+					echo "<script language=\"javascript\">";
+					echo "window.location.href='login.php'";
+					echo "</script>"; 
+					break;
+				}
 			}
 		}
 		else if(isset($_GET['submit'])){
@@ -39,6 +47,13 @@ This is the Space Log of E
 				case 'statistic':include("/Units/unit_statistic.php");break;
 				case 'delete':include("/Units/unit_delete.php");break;
 				case 'edit':include("/Units/unit_edit.php");break;
+				case 'login':
+				{
+					echo "<script language=\"javascript\">";
+					echo "window.location.href='login.php'";
+					echo "</script>"; 
+					break;
+				}
 			}
 		}
 		else{

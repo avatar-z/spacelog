@@ -108,7 +108,7 @@ i{display:inline-block; width:0; height:100%; vertical-align:middle;}
 <div align="center">
 <i></i>
 <div class="box">
-<!--<img src="img/common/logo_gongshi.png" width="180" height="180" alt=""/>-->
+<img src="/Images/night.png" width="256" height="256" alt=""/>
 <hr/>
 <h1 style="color:hsla(202,100%,50%,1.00); font-family:'Microsoft YaHei'">用户登录</h1>
 <hr/>

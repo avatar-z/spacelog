@@ -23,6 +23,9 @@
     <tr>
       <td><a href="?do=delete" target="_self">delete</a></td>
     </tr>
+    <tr>
+      <td><a href="?do=login" target="_self">login</a></td>
+    </tr>
   </tbody>
 </table>
 </body>

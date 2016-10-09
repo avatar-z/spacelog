@@ -103,27 +103,36 @@ require_once("/Functions/func_gen.php");
   <tbody>
     <tr>
       <td>eid</td>
-      <td><input name="eid" id="eid" type="text" value="<?php echo($e_count); ?>" readonly/></td>
+      <td><input name="eid" id="eid" type="text" style="width:100%" value="<?php echo($e_count); ?>" readonly/></td>
     </tr>
     <tr>
       <td>start</td>
-      <td><input name="start" id="start" type="text"/></td>
+      <td><input name="start" id="start" type="text" style="width:100%"/></td>
     </tr>
     <tr>
       <td>end</td>
-      <td><input name="end" id="end" type="text"/></td>
+      <td><input name="end" id="end" type="text" style="width:100%"/></td>
     </tr>
     <tr>
       <td>event</td>
-      <td><input name="event" id="event" type="text"/></td>
+      <td><input name="event" id="event" type="text" style="width:100%"/></td>
     </tr>
     <tr>
       <td>status</td>
-      <td><input name="status" id="status" type="text"/></td>
+      <td>
+      <select name="status" onchange="status(this)" style="width:100%"> 
+	  <!-- <select name="status" >-->
+	  <option>------ please choose ------</option>
+	  <option value="STA_PLANING">event planing</option> 
+	  <option value="STA_ONGOING">event ongoing</option> 
+	  <option value="STA_FINISHING">event finishing</option> 
+	  <option value="STA_TESTING">event testing</option> 
+	  </select> 
+      </td>
     </tr>
     <tr>
       <td>stamp</td>
-      <td><input name="stamp" id="stamp" type="text" value="<?php echo(time()); ?>" readonly/></td>
+      <td><input name="stamp" id="stamp" type="text" style="width:100%" value="<?php echo(time()); ?>" readonly/></td>
     </tr>
     <tr>
       <td>uid</td>
@@ -131,12 +140,12 @@ require_once("/Functions/func_gen.php");
       <?php
 	  if($_COOKIE['sl_access'] == "ACCESS_GRANTED"){
 		  ?>
-      <input name="uid" id="uid" type="text" value="<?php echo($_COOKIE['sl_id']); ?>" readonly/>
+      <input name="uid" id="uid" type="text" style="width:100%" value="<?php echo($_COOKIE['sl_id']); ?>" readonly/>
       <?php
 	  }
 	  else{
 		  ?>
-      <input name="user_login" id="user_login" type="button" value="Login" onClick="onUserLogin()"/>
+      <input name="user_login" id="user_login" type="button" style="width:100%" value="Login" onClick="onUserLogin()"/>
           <?php
 	  }
 	  ?>
@@ -144,7 +153,10 @@ require_once("/Functions/func_gen.php");
     </tr>
     <tr>
       <td>&nbsp;</td>
-      <td><input name="submit" id="submit" type="submit" value="Submit"</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td colspan="2"><input name="submit" id="submit" type="submit" style="width:100%; height:200%" value="Submit"/></td>
     </tr>
   </tbody>
 </table>
