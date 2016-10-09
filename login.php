@@ -61,7 +61,7 @@ if (isset($_POST['name'])) {
   $MM_redirecttoReferrer = true;
   mysql_select_db($database_spacelog, $spacelog);
   
-  $LoginRS__query=sprintf("SELECT name, password FROM sl_profile WHERE name=%s AND password=%s",
+  $LoginRS__query=sprintf("SELECT uid, name, password FROM sl_profile WHERE name=%s AND password=%s",
     GetSQLValueString($loginUsername, "text"), GetSQLValueString($password, "text")); 
    
   $LoginRS = mysql_query($LoginRS__query, $spacelog) or die(mysql_error());
@@ -77,7 +77,9 @@ if (isset($_POST['name'])) {
     if (isset($_SESSION['PrevUrl']) && true) {
       $MM_redirectLoginSuccess = $_SESSION['PrevUrl'];	
     }
-    $loginAccess->setAccess($loginUsername); // set cookie
+	//track user id
+	list($login_uid, $login_name, $login_pw) = mysql_fetch_row($LoginRS);
+    $loginAccess->setAccess($loginUsername, $login_uid); // set cookie
     header("Location: " . $MM_redirectLoginSuccess );
   }
   else {

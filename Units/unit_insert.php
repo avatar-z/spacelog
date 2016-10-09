@@ -1,17 +1,9 @@
 <?php require_once('/Connections/spacelog.php'); ?>
 
 <?php
-$GEN['year'] = "2016";
-$GEN['month'] = "9";
-$GEN['day'] = "30";
-/*
-$_POST['uid'] = "2016";
-$_POST['start'] = "2016";
-$_POST['end'] = "2016";
-$_POST['stamp'] = "2016";
-$_POST['event'] = "2016";
-$_POST['status'] = "2016";
-*/
+$GEN['year'] = date('Y');
+$GEN['month'] = date('m');
+$GEN['day'] = date('d');
 ?>
 
 <?php
@@ -68,13 +60,35 @@ if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "form_insert")) {
   $Result1 = mysql_query($insertSQL, $spacelog) or die(mysql_error());
 }
 
+if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "form_insert")) {
+  $insertSQL2 = sprintf("UPDATE sl_global SET e_count=%s WHERE gid=0",
+                       GetSQLValueString($_POST['eid'], "int"));
+
+  mysql_select_db($database_spacelog, $spacelog);
+  $Result12 = mysql_query($insertSQL2, $spacelog) or die(mysql_error());
+}
+
 mysql_select_db($database_spacelog, $spacelog);
 $query_RS_SL_INSERT_E = "SELECT * FROM sl_list";
 $RS_SL_INSERT_E = mysql_query($query_RS_SL_INSERT_E, $spacelog) or die(mysql_error());
 $row_RS_SL_INSERT_E = mysql_fetch_assoc($RS_SL_INSERT_E);
 $totalRows_RS_SL_INSERT_E = mysql_num_rows($RS_SL_INSERT_E);
+
+mysql_select_db($database_spacelog, $spacelog);
+$query_RS_SL_INSERT_G = "SELECT * FROM sl_global WHERE gid = 0";
+$RS_SL_INSERT_G = mysql_query($query_RS_SL_INSERT_G, $spacelog) or die(mysql_error());
+$row_RS_SL_INSERT_G = mysql_fetch_assoc($RS_SL_INSERT_G);
+$totalRows_RS_SL_INSERT_G = mysql_num_rows($RS_SL_INSERT_G);
+?>
+<?php
+$e_count = $row_RS_SL_INSERT_G['e_count'] + 1;
 ?>
 <!doctype php>
+<script language="javascript">
+function onUserLogin(){
+	window.location.href="login.php";
+}
+</script>
 <html>
 <head>
 <meta charset="utf-8">
@@ -89,7 +103,7 @@ require_once("/Functions/func_gen.php");
   <tbody>
     <tr>
       <td>eid</td>
-      <td><input name="eid" id="eid" type="text"/></td>
+      <td><input name="eid" id="eid" type="text" value="<?php echo($e_count); ?>" readonly/></td>
     </tr>
     <tr>
       <td>start</td>
@@ -109,11 +123,24 @@ require_once("/Functions/func_gen.php");
     </tr>
     <tr>
       <td>stamp</td>
-      <td><input name="stamp" id="stamp" type="text"/></td>
+      <td><input name="stamp" id="stamp" type="text" value="<?php echo(time()); ?>" readonly/></td>
     </tr>
     <tr>
       <td>uid</td>
-      <td><input name="uid" id="uid" type="text"/></td>
+      <td>
+      <?php
+	  if($_COOKIE['sl_access'] == "ACCESS_GRANTED"){
+		  ?>
+      <input name="uid" id="uid" type="text" value="<?php echo($_COOKIE['sl_id']); ?>" readonly/>
+      <?php
+	  }
+	  else{
+		  ?>
+      <input name="user_login" id="user_login" type="button" value="Login" onClick="onUserLogin()"/>
+          <?php
+	  }
+	  ?>
+      </td>
     </tr>
     <tr>
       <td>&nbsp;</td>
@@ -127,4 +154,6 @@ require_once("/Functions/func_gen.php");
 </html>
 <?php
 mysql_free_result($RS_SL_INSERT_E);
+
+mysql_free_result($RS_SL_INSERT_G);
 ?>

@@ -3,6 +3,9 @@
 <table width="200" border="0">
   <tbody>
     <tr>
+      <td><a href="?do=index" target="_self">index</a></td>
+    </tr>
+    <tr>
       <td><a href="?do=insert" target="_self">insert</a></td>
     </tr>
     <tr>

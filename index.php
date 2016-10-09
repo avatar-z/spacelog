@@ -21,6 +21,7 @@ This is the Space Log of E
       <?php 
 	  	if(isset($_GET['do'])){
 			switch($_GET['do']){
+				case 'index':include("/Units/unit_index.php");break;
 				case 'insert':include("/Units/unit_insert.php");break;
 				case 'search':include("/Units/unit_search.php");break;
 				case 'review':include("/Units/unit_review.php");break;
@@ -31,6 +32,7 @@ This is the Space Log of E
 		}
 		else if(isset($_GET['submit'])){
 			switch($_GET['submit']){
+				case 'index':include("/Units/unit_index.php");break;
 				case 'insert':include("/Units/unit_insert.php");break;
 				case 'search':include("/Units/unit_search.php");break;
 				case 'review':include("/Units/unit_review.php");break;
