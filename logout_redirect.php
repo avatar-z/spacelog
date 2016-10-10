@@ -1,9 +1,11 @@
+<?php
+	require_once('webprofile.php');
+	$url = $GLOBALS['WL'].'/index.php';
+?>
 <?php require_once('access.php'); ?>
 <?php
 	$logoutAccess = new Access;
 	$logoutAccess->deleteAccess();
-	//setcookie("campus_account", $account, time()-1, '~/access', 'campus.e1996.com');
-	//setcookie("campus_access", "ACCESS_GRANTED", time()-1, '~/access', 'campus.e1996.com');
 ?>
 <html>
 <head>
@@ -23,7 +25,10 @@
 		sleep(2);
 	}
 	*/
-	$url = 'http://local.spacelog.com/index.php';
-	echo "<script language=\"javascript\">setTimeout(\"window.location.href='".$url."'\",1000)</script>";
+echo <<<redirect
+<script language=JavaScript>
+setTimeout("window.location.href='$url'",1000);
+</script>
+redirect;
 ?>
 </html>

@@ -1,4 +1,4 @@
-<?php require_once("/webprofile.php"); ?>
+<?php require_once("webprofile.php"); ?>
 <!doctype php>
 <html>
 <head>
@@ -22,13 +22,13 @@ This is the Space Log of E
       <?php 
 	  	if(isset($_GET['do'])){
 			switch($_GET['do']){
-				case 'index':include("/Units/unit_index.php");break;
-				case 'insert':include("/Units/unit_insert.php");break;
-				case 'search':include("/Units/unit_search.php");break;
-				case 'review':include("/Units/unit_review.php");break;
-				case 'statistic':include("/Units/unit_statistic.php");break;
-				case 'edit':include("/Units/unit_edit.php");break;
-				case 'delete':include("/Units/unit_delete.php");break;
+				case 'index':include("Units/unit_index.php");break;
+				case 'insert':include("Units/unit_insert.php");break;
+				case 'search':include("Units/unit_search.php");break;
+				case 'review':include("Units/unit_review.php");break;
+				case 'statistic':include("Units/unit_statistic.php");break;
+				case 'edit':include("Units/unit_edit.php");break;
+				case 'delete':include("Units/unit_delete.php");break;
 				case 'login':
 				{
 					echo "<script language=\"javascript\">";
@@ -40,13 +40,13 @@ This is the Space Log of E
 		}
 		else if(isset($_GET['submit'])){
 			switch($_GET['submit']){
-				case 'index':include("/Units/unit_index.php");break;
-				case 'insert':include("/Units/unit_insert.php");break;
-				case 'search':include("/Units/unit_search.php");break;
-				case 'review':include("/Units/unit_review.php");break;
-				case 'statistic':include("/Units/unit_statistic.php");break;
-				case 'delete':include("/Units/unit_delete.php");break;
-				case 'edit':include("/Units/unit_edit.php");break;
+				case 'index':include("Units/unit_index.php");break;
+				case 'insert':include("Units/unit_insert.php");break;
+				case 'search':include("Units/unit_search.php");break;
+				case 'review':include("Units/unit_review.php");break;
+				case 'statistic':include("Units/unit_statistic.php");break;
+				case 'delete':include("Units/unit_delete.php");break;
+				case 'edit':include("Units/unit_edit.php");break;
 				case 'login':
 				{
 					echo "<script language=\"javascript\">";
@@ -57,11 +57,11 @@ This is the Space Log of E
 			}
 		}
 		else{
-			include("/Units/unit_index.php");
+			include("Units/unit_index.php");
 		}
 	  ?>
       </td>
-      <td style="width:200px;"><?php include("/Units/unit_sidebar.php"); ?></td>
+      <td style="width:200px;"><?php include("Units/unit_sidebar.php"); ?></td>
     </tr>
     <tr>
       <td style="width:400px;">&nbsp;</td>

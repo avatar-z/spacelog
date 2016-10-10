@@ -1,6 +1,7 @@
+<?php require_once("webprofile.php"); ?>
 <html>
 <?php
-	$url = 'http://local.spacelog.com/login.php';
+	$url = $GLOBALS['WL'].'/login.php';
 ?>
 <script language="javascript">
 //function winRedirect(){ setTimeout("window.location.href='".<?php echo $url; ?>."'",1000); }

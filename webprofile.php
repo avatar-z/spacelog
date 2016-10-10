@@ -1,4 +1,4 @@
 <!doctype php>
 <?php
-$website_location = "http://local.spacelog.com";
+$GLOBALS['WL'] = 'http://www.spacelog.com';//actually just localhost 127.0.0.1
 ?>

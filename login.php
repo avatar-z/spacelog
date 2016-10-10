@@ -1,5 +1,10 @@
 <?php
-	require_once('/access.php');
+require_once('webprofile.php');
+$url_index = $GLOBALS['WL'].'/index.php';
+$url_logout = $GLOBALS['WL'].'/logout_redirect.php';
+?>
+<?php
+	require_once('access.php');
 	$loginAccess = new Access;
 ?>
 <?php require_once('Connections/spacelog.php'); ?>
@@ -89,8 +94,11 @@ if (isset($_POST['name'])) {
 ?>
 <html>
 <script type="text/javascript">
+function index(){
+	location.href='<?php echo($url_index); ?>';
+}
 function logout(){
-	location.href='http://local.spacelog.com/logout_redirect.php';
+	location.href='<?php echo($url_logout); ?>';
 }
 </script>
 <style>
@@ -114,6 +122,10 @@ i{display:inline-block; width:0; height:100%; vertical-align:middle;}
 <hr/>
 <?php if($_COOKIE['sl_access']=="ACCESS_GRANTED"){ ?>
 <h2 style="color:hsla(202,100%,50%,1.00); font-family:'Microsoft YaHei'">已登录</h2>
+<button onClick="index()" style="background:none; border-color:hsla(202,100%,50%,1.00); width:100; height:30
+font-family:'Microsoft YaHei'; font-size:16">
+首页
+</button>
 <button onClick="logout()" style="background:none; border-color:hsla(202,100%,50%,1.00); width:100; height:30
 font-family:'Microsoft YaHei'; font-size:16">
 登出

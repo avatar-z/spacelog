@@ -1,4 +1,4 @@
-<?php require_once('/Connections/spacelog.php'); ?>
+<?php require_once('Connections/spacelog.php'); ?>
 
 <?php
 $GEN['year'] = date('Y');
@@ -95,7 +95,7 @@ function onUserLogin(){
 <title>E's space log - unit insert</title>
 </head>
 <?php
-require_once("/Functions/func_gen.php");
+require_once("Functions/func_gen.php");
 ?>
 <body>
 <form action="<?php echo $editFormAction; ?>" method="POST" name="form_insert">
